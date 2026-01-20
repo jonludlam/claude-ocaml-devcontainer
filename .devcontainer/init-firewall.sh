@@ -80,6 +80,9 @@ for domain in \
     "tangled.org" \
     "api.fastmail.com" \
     "packages.apache.org" \
+    "jon-test.ludl.am" \
+    "recoil.org" \
+    "gitlab.inria.fr" \
     "statsig.com"; do
     echo "Resolving $domain..."
     ips=$(dig +noall +answer A "$domain" | awk '$4 == "A" {print $5}')
