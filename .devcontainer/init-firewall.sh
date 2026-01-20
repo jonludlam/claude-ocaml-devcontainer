@@ -84,6 +84,9 @@ for domain in \
     "recoil.org" \
     "gitlab.inria.fr" \
     "erratique.ch" \
+    "codeload.github.com" \
+    "ygrek.org" \
+    "ocaml.janestreet.com" \
     "statsig.com"; do
     echo "Resolving $domain..."
     ips=$(dig +noall +answer A "$domain" | awk '$4 == "A" {print $5}')
