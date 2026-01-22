@@ -40,6 +40,9 @@ RUN wget https://packages.apache.org/artifactory/arrow/debian/apache-arrow-apt-s
 RUN apt update
 RUN apt install -y libarrow-dev libparquet-dev
 
+# Playwright system dependencies
+RUN npx playwright install-deps
+
 # Ensure default node user has access to /usr/local/share
 RUN mkdir -p /usr/local/share/npm-global && \
   chown -R node:node /usr/local/share
@@ -96,6 +99,9 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
 
 # Install Claude
 RUN npm install -g @anthropic-ai/claude-code@${CLAUDE_CODE_VERSION}
+
+# Install Playwright and browsers
+RUN npm install -g playwright && playwright install
 
 COPY setup-ocaml.sh /usr/local/bin
 

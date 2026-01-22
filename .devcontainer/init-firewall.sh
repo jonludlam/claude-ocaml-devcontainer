@@ -87,7 +87,10 @@ for domain in \
     "codeload.github.com" \
     "ygrek.org" \
     "ocaml.janestreet.com" \
-    "statsig.com"; do
+    "statsig.com" \
+    "playwright.azureedge.net" \
+    "playwright-verizon.azureedge.net" \
+    "playwright-akamai.azureedge.net"; do
     echo "Resolving $domain..."
     ips=$(dig +noall +answer A "$domain" | awk '$4 == "A" {print $5}')
     if [ -z "$ips" ]; then
