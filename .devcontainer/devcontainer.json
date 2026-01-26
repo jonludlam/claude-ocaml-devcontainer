@@ -3,8 +3,16 @@
   "image": "ghcr.io/avsm/claude-ocaml-devcontainer:main",
   "runArgs": [
     "--cap-add=NET_ADMIN",
-    "--cap-add=NET_RAW"
+    "--cap-add=NET_RAW",
+    "--ipc=host",
+    "--init"
   ],
+  "features": {
+    "ghcr.io/devcontainers/features/desktop-lite:1": {
+      "webPort": "6080"
+    }
+  },
+  "forwardPorts": [6080],
   "customizations": {
     "vscode": {
       "extensions": [
